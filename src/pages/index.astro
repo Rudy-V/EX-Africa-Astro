@@ -1,5 +1,5 @@
 ---
-import { Container, FeatureCard } from '@components/odyssey-theme';
+import { Container, FeatureCard, TextCardSection, StickyTextImageSection } from '@components/odyssey-theme';
 
 import Layout from '../layouts/Page.astro';
 import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
@@ -9,69 +9,51 @@ import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro'
 	<HomeHeroSection />
 	<Container>
 		<section class="feature-card__section">
-			<h2>Landing Pages</h2>
+			<h2>Curated luxury experiences</h2>
 			<p>
-				Use one of our landing pages to jumpstart your website or
-				ad campaign.
+				Experience Africa Safaris offers a collection of luxury pre-planned safaris designed for travelers seeking unforgettable adventures. Join us on rare bird and wildlife photographic safaris, immerse yourself in photography courses set against breathtaking African landscapes, or participate in eco-focused safaris that actively support conservation efforts. Every curated safari combines comfort, expert guidance, and authentic wilderness encounters to create a journey you’ll never forget.
 			</p>
 			<div class="feature-card__grid">
-				<FeatureCard href="/landing-pages/landing-1" title="Landing Page 1" imgSrc="/assets/images/home/screenshots/landing-1">
+				<FeatureCard href="/landing-pages/landing-1" title="View safaris" imgSrc="/assets/images/home/screenshots/landing-1">
 				</FeatureCard>
-				<FeatureCard href="/landing-pages/landing-2" title="Landing Page 2" imgSrc="/assets/images/home/screenshots/landing-2">
+				<FeatureCard href="/landing-pages/landing-2" title="View lodges" imgSrc="/assets/images/home/screenshots/landing-2">
 				</FeatureCard>
 			</div>
 		</section>
 	</Container>
-
 	<Container>
-		<section class="feature-card__section">
-			<h2>Company Pages</h2>
+		<TextCardSection>
+			<h2>Private and fully customisable safaris</h2>
 			<p>
-				Use one of our prebuilt company pages for your about page, contact page,
-				legal pages, blog posts, etc.
+				Create a safari experience as unique as your sense of adventure. Choose your destinations, activities, and pace. Whether it’s tracking wildlife at dawn, gliding over the savannah in a hot air balloon, or relaxing in secluded luxury lodges. With our expert guidance, your safari is fully personalized to reflect your style, passions, and dreams. 
 			</p>
-			<div class="feature-card__grid">
-				<FeatureCard href="/company/about" title="About Page" imgSrc="/assets/images/home/screenshots/about">
-				</FeatureCard>
-				<FeatureCard href="/company/contact" title="Contact Page" imgSrc="/assets/images/home/screenshots/contact">
-				</FeatureCard>
-				<FeatureCard href="/blog/" title="Blog Page" imgSrc="/assets/images/home/screenshots/blog">
-				</FeatureCard>
-				<FeatureCard
-					href="/blog/posts/remote-work-mental-health"
-					title="Blog Post"
-          imgSrc="/assets/images/home/screenshots/blog-post"
-				>
-				</FeatureCard>
-				<FeatureCard
-					href="/company/legal"
-					imgSrc="/assets/images/home/screenshots/legal"
-					title="Legal Page"
-				>
-				</FeatureCard>
-			</div>
-		</section>
+		</TextCardSection>
 	</Container>
-
 	<Container>
-		<section class="feature-card__section">
-			<h2>Theme Pages</h2>
-			<p>Learn more about how to set up and use the Odyssey Theme.</p>
-			<div class="feature-card__grid">
-				<FeatureCard
-					href="/theme/get-started"
-					imgSrc="/assets/images/home/screenshots/get-started"
-					title="Get Started"
-				>
-				</FeatureCard>
-				<FeatureCard
-					href="/theme/style-guide"
-					imgSrc="/assets/images/home/screenshots/style-guide"
-					title="Style Guide"
-				>
-				</FeatureCard>
-			</div>
-		</section>
+		<StickyTextImageSection>
+		<div slot="text-container">
+			<h2>Travel That Gives Back to Africa</h2>
+			<h3>Our Passion: Meaningful Luxury Travel</h3>
+			<p>
+At Experience Africa Safaris, we believe luxury travel should be more than indulgent—it should be impactful. We craft exceptional safari experiences that blend comfort, authenticity, and a deep respect for Africa’s natural world.
+			</p>
+			<h3>Our Purpose: Conservation at the Core</h3>
+			<p>
+Founded with a vision to protect what makes Africa extraordinary, every journey we design actively supports conservation efforts and local communities, ensuring wildlife and wild places are preserved for future generations.
+			</p>
+			<h3>Your Impact: A Safari That Matters</h3>
+			<p>
+				Whether pre-planned or custom-designed, each safari connects you more deeply with nature while contributing to positive change—creating unforgettable memories that leave a lasting legacy for the planet.
+			</p>
+		</div>
+		<picture slot="image-container">
+			<img
+				src="/assets/images/home/Kruger-lion.jpg"
+				alt="Lion in the Kruger"
+				loading="lazy"
+			/>
+		</picture>
+	</StickyTextImageSection>
 	</Container>
 </Layout>
 
