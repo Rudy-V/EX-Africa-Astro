@@ -1,4 +1,14 @@
 {
-    "IDX.aI.enableInlineCompletion": true,
-    "IDX.aI.enableCodebaseIndexing": true
+	"IDX.aI.enableInlineCompletion": true,
+	"IDX.aI.enableCodebaseIndexing": true,
+	"workbench.colorCustomizations": {
+		"activityBar.background": "#511D0E",
+		"titleBar.activeBackground": "#722913",
+		"titleBar.activeForeground": "#FEF8F7"
+	},
+	"prettier.prettierPath": "./node_modules/prettier",
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"[astro]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }

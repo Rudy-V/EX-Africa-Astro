@@ -1,5 +1,11 @@
 ---
-import { Container, FeatureCard, TextCardSection, StickyTextImageSection } from '@components/odyssey-theme';
+import {
+	Container,
+	FeatureCard,
+	TextCardSection,
+	StickyTextImageSection,
+	YouTubeEmbedSection,
+} from '@components/odyssey-theme';
 
 import Layout from '../layouts/Page.astro';
 import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro';
@@ -11,13 +17,25 @@ import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro'
 		<section class="feature-card__section">
 			<h2>Curated luxury experiences</h2>
 			<p>
-				Experience Africa Safaris offers a collection of luxury pre-planned safaris designed for travelers seeking unforgettable adventures. Join us on rare bird and wildlife photographic safaris, immerse yourself in photography courses set against breathtaking African landscapes, or participate in eco-focused safaris that actively support conservation efforts. Every curated safari combines comfort, expert guidance, and authentic wilderness encounters to create a journey you’ll never forget.
+				Experience Africa Safaris offers a collection of luxury pre-planned
+				safaris designed for travelers seeking unforgettable adventures. Join us
+				on rare bird and wildlife photographic safaris, immerse yourself in
+				photography courses set against breathtaking African landscapes, or
+				participate in eco-focused safaris that actively support conservation
+				efforts. Every curated safari combines comfort, expert guidance, and
+				authentic wilderness encounters to create a journey you’ll never forget.
 			</p>
 			<div class="feature-card__grid">
-				<FeatureCard href="/landing-pages/landing-1" title="View safaris" imgSrc="/assets/images/home/screenshots/landing-1">
-				</FeatureCard>
-				<FeatureCard href="/landing-pages/landing-2" title="View lodges" imgSrc="/assets/images/home/screenshots/landing-2">
-				</FeatureCard>
+				<FeatureCard
+					href="/landing-pages/landing-1"
+					title="View safaris"
+					imgSrc="/assets/images/home/screenshots/landing-1"
+				/>
+				<FeatureCard
+					href="/landing-pages/landing-2"
+					title="View lodges"
+					imgSrc="/assets/images/home/screenshots/landing-2"
+				/>
 			</div>
 		</section>
 	</Container>
@@ -25,35 +43,53 @@ import HomeHeroSection from '../components/sections/heros/HomeHeroSection.astro'
 		<TextCardSection>
 			<h2>Private and fully customisable safaris</h2>
 			<p>
-				Create a safari experience as unique as your sense of adventure. Choose your destinations, activities, and pace. Whether it’s tracking wildlife at dawn, gliding over the savannah in a hot air balloon, or relaxing in secluded luxury lodges. With our expert guidance, your safari is fully personalized to reflect your style, passions, and dreams. 
+				Create a safari experience as unique as your sense of adventure. Choose
+				your destinations, activities, and pace. Whether it’s tracking wildlife
+				at dawn, gliding over the savannah in a hot air balloon, or relaxing in
+				secluded luxury lodges. With our expert guidance, your safari is fully
+				personalized to reflect your style, passions, and dreams.
 			</p>
 		</TextCardSection>
 	</Container>
 	<Container>
 		<StickyTextImageSection>
-		<div slot="text-container">
-			<h2>Travel That Gives Back to Africa</h2>
-			<h3>Our Passion: Meaningful Luxury Travel</h3>
-			<p>
-At Experience Africa Safaris, we believe luxury travel should be more than indulgent—it should be impactful. We craft exceptional safari experiences that blend comfort, authenticity, and a deep respect for Africa’s natural world.
-			</p>
-			<h3>Our Purpose: Conservation at the Core</h3>
-			<p>
-Founded with a vision to protect what makes Africa extraordinary, every journey we design actively supports conservation efforts and local communities, ensuring wildlife and wild places are preserved for future generations.
-			</p>
-			<h3>Your Impact: A Safari That Matters</h3>
-			<p>
-				Whether pre-planned or custom-designed, each safari connects you more deeply with nature while contributing to positive change—creating unforgettable memories that leave a lasting legacy for the planet.
-			</p>
-		</div>
-		<picture slot="image-container">
-			<img
-				src="/assets/images/home/Kruger-lion.jpg"
-				alt="Lion in the Kruger"
-				loading="lazy"
-			/>
-		</picture>
-	</StickyTextImageSection>
+			<div slot="text-container">
+				<h2>Travel That Gives Back to Africa</h2>
+				<h3>Our Passion: Meaningful Luxury Travel</h3>
+				<p>
+					At Experience Africa Safaris, we believe luxury travel should be more
+					than indulgent—it should be impactful. We craft exceptional safari
+					experiences that blend comfort, authenticity, and a deep respect for
+					Africa’s natural world.
+				</p>
+				<h3>Our Purpose: Conservation at the Core</h3>
+				<p>
+					Founded with a vision to protect what makes Africa extraordinary,
+					every journey we design actively supports conservation efforts and
+					local communities, ensuring wildlife and wild places are preserved for
+					future generations.
+				</p>
+				<h3>Your Impact: A Safari That Matters</h3>
+				<p>
+					Whether pre-planned or custom-designed, each safari connects you more
+					deeply with nature while contributing to positive change—creating
+					unforgettable memories that leave a lasting legacy for the planet.
+				</p>
+			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images/home/Kruger-lion.jpg"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
+		</StickyTextImageSection>
+	</Container>
+	<Container>
+		<YouTubeEmbedSection
+			url="https://www.youtube.com/watch?v=8gyoSJGTlpc"
+			rounded
+		/>
 	</Container>
 </Layout>
 

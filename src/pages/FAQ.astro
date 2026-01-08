@@ -1,0 +1,160 @@
+---
+import { Container, StickyTextImageSection } from '@components/odyssey-theme';
+import Layout from '../layouts/Page.astro';
+import HeroSection from '../components/sections/heros/HeroSection.astro';
+
+const seo = {
+	title: 'FAQ | Astro Odyssey Theme',
+	description: 'FAQ Page',
+};
+---
+
+<Layout {seo}>
+	<HeroSection>
+		<div slot="text-container">
+			<h1>Frequently asked questions</h1>
+		</div>
+		<picture slot="image-container">
+			<img
+				src="assets/images/home/Casper.jpg"
+				alt="Curteis Roberts"
+				id="home-hero-image"
+			/>
+		</picture>
+	</HeroSection>
+	<Container>
+		<StickyTextImageSection reversed={true}>
+			<div slot="text-container">
+				<h2>Booking and planning</h2>
+				<h3>How do I choose the right safari for me?</h3>
+				<p>
+					The best safari depends on your travel style and budget. If you are
+					adventurous and enjoy a hands-on experience, our camping and overland
+					safaris are a great choice. If you prefer more comfort, our
+					lodge-based or mixed lodge safaris are perfect. Our team is always
+					available to discuss your preferences and help you select the ideal
+					itinerary.
+				</p>
+				<h3>What is the best time of year to go on safari?</h3>
+				<p>
+					The dry season (roughly May to October) is considered prime time for
+					wildlife viewing. The vegetation is sparse, and animals congregate
+					around water sources, making them easier to spot. The wet season
+					(November to April) offers lush, green landscapes and is excellent for
+					birdwatching and photography, and it's also when many animals give
+					birth.
+				</p><h3>What should I pack for my safari?</h3>
+				<p>
+					We recommend packing light, comfortable clothing in neutral colors
+					(khaki, tan, green). Layers are essential, as mornings and evenings
+					can be cool. A wide-brimmed hat, sunglasses, sunscreen, insect
+					repellent, and a good pair of binoculars are also highly recommended.
+					A detailed packing list will be provided with your booking
+					confirmation.
+				</p>
+				<h3>What is the luggage allowance on safari?</h3>
+				<p>
+					Due to the limited space in our safari vehicles and on smaller bush
+					planes, luggage is often restricted. We recommend using soft-sided
+					bags or duffels and adhering to the weight limits specified in your
+					tour documents. This is typically around 15-20 kg (33-44 lbs).
+				</p>
+				<h3>Are there any health considerations?</h3>
+				<p>
+					Some of our safari destinations are in malaria-prone areas. It is
+					essential to consult your doctor or a travel clinic for advice on
+					anti-malarial medication and other recommended vaccinations well in
+					advance of your trip. We also advise bringing any personal medication
+					you may need.
+				</p>
+			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images/faq/Zimbabwe EAS (4 of 9).jpg"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
+		</StickyTextImageSection>
+	</Container>
+	<Container>
+		<StickyTextImageSection reversed={true}>
+			<div slot="text-container">
+				<h2>On the road</h2>
+				<h3>What are the vehicles like?</h3>
+				<p>
+					Our overland vehicles are custom-built, rugged trucks designed for the
+					tough African roads. They have large windows for optimal game viewing
+					and are equipped with everything needed for the journey. Lodge-based
+					safaris may use open-sided 4x4 safari vehicles, which offer excellent
+					visibility for photography and game drives.
+				</p>
+				<h3>What is the food like on a camping safari?</h3>
+				<p>
+					Our safari chefs prepare delicious and varied meals, often cooked over
+					an open fire. You can expect a mix of local and international dishes,
+					with fresh ingredients. We can accommodate most dietary requirements,
+					so please inform us of any allergies or preferences when you book.
+				</p><h3>Is it safe to go on a safari?</h3>
+				<p>
+					Your safety is our top priority. All our guides and trackers are
+					highly trained professionals with extensive knowledge of the bush. We
+					adhere to strict safety protocols at all times, both in and out of the
+					vehicle. We recommend you always follow the instructions of your
+					guide.
+				</p>
+				<h3>Can I charge my electronic devices on safari?</h3>
+				<p>
+					In our vehicles and at most camps and lodges, there are facilities to
+					charge phones and camera batteries. However, power may be limited or
+					run on a generator, so it's a good idea to bring extra batteries or a
+					power bank, especially for photography-focused tours.
+				</p>
+				<h3>Are there any health considerations?</h3>
+				<p>
+					Some of our safari destinations are in malaria-prone areas. It is
+					essential to consult your doctor or a travel clinic for advice on
+					anti-malarial medication and other recommended vaccinations well in
+					advance of your trip. We also advise bringing any personal medication
+					you may need.
+				</p>
+			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images/faq/Zimbabwe.jpg"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
+		</StickyTextImageSection>
+	</Container>
+	<Container>
+		<StickyTextImageSection reversed={true}>
+			<div slot="text-container">
+				<h2>Safaris and luxury lodges</h2>
+				<h3>What safaris do you offer?</h3>
+				<p>
+					We offer several pre-planned safaris that are notoriously planed down
+					to the smallest detail. Refer to the Safaris page for the latest
+					offering. We also offer private safaris and lodge experiences.
+				</p>
+				<h3>Where do you operate?</h3>
+				<p>
+					We are based out of South Africa but do offer safari and lodge
+					services throughout southern Africa.
+				</p><h3>Are you able to customise your safari/lodge experience?</h3>
+				<p>
+					Yes, browse the private safaris page to get an introduction to
+					designing your ideal safari.
+				</p>
+			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images/faq/Mashatu.jpg"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
+		</StickyTextImageSection>
+	</Container>
+</Layout>

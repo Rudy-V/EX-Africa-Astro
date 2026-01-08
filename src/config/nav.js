@@ -12,6 +12,10 @@ export const nav = [
 		slug: '/about',
 	},
 	{
+		title: 'FAQ',
+		slug: '/FAQ',
+	},
+	{
 		title: 'Contact',
 		slug: '/contact',
 	},
