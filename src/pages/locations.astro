@@ -1,0 +1,408 @@
+---
+import {
+	Container,
+	FeatureCard,
+	TextCardSection,
+	StickyTextImageSection,
+} from '@components/odyssey-theme';
+import Layout from '../layouts/Page.astro';
+import HeroSection from '../components/sections/heros/HeroSection.astro';
+
+const seo = {
+	title: 'Locations | Astro Odyssey Theme',
+	description: 'Operating locations',
+};
+---
+
+<Layout {seo}>
+	<HeroSection>
+		<div slot="text-container">
+			<h1>Our game park reviews</h1>
+			<p>
+				Learn about our operating locations and read our reviews of parks,
+				lodges and reserves.
+			</p>
+		</div>
+		<picture slot="image-container">
+			<img
+				src="assets/images/home/Casper.jpg"
+				alt="Curteis Roberts"
+				id="home-hero-image"
+			/>
+		</picture>
+	</HeroSection>
+	<Container>
+		<section class="feature-card__section">
+			<div class="feature-card__grid">
+				<FeatureCard
+					href="#south-africa"
+					title="South Africa"
+					imgSrc="assets/images/home/screenshots/landing-2"
+				/>
+				<FeatureCard
+					href="#Botswana"
+					title="Botswana"
+					imgSrc="/assets/images/home/screenshots/landing-2"
+				/>
+				<FeatureCard
+					href="#Zambia"
+					title="Zambia"
+					imgSrc="/assets/images/home/screenshots/landing-2"
+				/>
+				<FeatureCard
+					href="#Zimbabwe"
+					title="Zimbabwe"
+					imgSrc="/assets/images/home/screenshots/landing-2"
+				/>
+				<FeatureCard
+					href="#Namibia"
+					title="Namibia"
+					imgSrc="/assets/images/home/screenshots/landing-2"
+				/>
+			</div>
+		</section>
+	</Container>
+	<Container>
+		<TextCardSection>
+			<h2 id="south-africa">South Africa</h2>
+			<strong>Parks, Game Reserves and Others</strong>
+		</TextCardSection>
+	</Container>
+	<Container>
+		<StickyTextImageSection>
+			<div slot="text-container">
+				<h3>Kgalagadi Transfrontier Parka</h3>
+				<p>
+					This vast red-sand wilderness, shared with Botswana, offers excellent
+					predator sightings, especially of black-maned lions. It's a true
+					escape into a stark and beautiful desert landscape, perfect for
+					photographers seeking unique shots. The sparse vegetation makes
+					wildlife spotting easier than in denser bush. The best time to visit
+					is during the cooler, dry months from May to September, when animals
+					are more active.
+				</p>
+				<h3>Kruger National Park</h3>
+				<p>
+					One of Africa's most famous and accessible safari destinations,
+					offering a classic Big Five experience. The park has a wide variety of
+					habitats and an extensive road network, allowing for both self-drive
+					and guided tours. Its diverse wildlife and stunning landscapes make it
+					a premier safari location. The dry season, from May to October, is
+					optimal for game viewing as vegetation thins out and animals gather at
+					water sources.
+				</p>
+			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images/home/Kruger-lion.jpg"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
+		</StickyTextImageSection>
+		<StickyTextImageSection reversed={true}>
+			<div slot="text-container">
+				<h3>Mountain Zebra National Park</h3>
+				<p>
+					A conservation success story focused on protecting the endangered Cape
+					mountain zebra. This peaceful park in the Eastern Cape's Cradock
+					region offers beautiful mountain scenery, diverse wildlife including
+					cheetah and caracal, and a chance to experience a different side of
+					South African wilderness. This park can be visited year-round, but the
+					spring and autumn months offer particularly pleasant weather.
+				</p>
+				<h3>Cape Point</h3>
+				<p>
+					Located at the tip of the Cape Peninsula, this is a spectacular nature
+					reserve with dramatic cliffs, beautiful fynbos, and breathtaking views
+					where the Atlantic and Indian Oceans meet. While not a traditional
+					safari destination, it offers great birdwatching and is home to
+					baboons, ostriches, and unique flora. It's best to visit from
+					September to March, during the spring and summer, when the weather is
+					warm and wildflowers are in bloom.
+				</p>
+			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images/home/Kruger-lion.jpg"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
+		</StickyTextImageSection>
+	</Container>
+	<Container>
+		<TextCardSection>
+			<h2 id="Botswana">Botswana</h2>
+			<strong>Parks, Game Reserves and Others</strong>
+		</TextCardSection>
+	</Container>
+	<Container>
+		<StickyTextImageSection>
+			<div slot="text-container">
+				<h3>Moremi Game Reserve</h3>
+				<p>
+					The Moremi Game Reserve is a highlight of the Okavango Delta. Known
+					for its lush landscapes that include lagoons, forests, and
+					floodplains, the reserve supports a wide and diverse range of
+					wildlife. As a key part of the Okavango Delta, it offers an
+					exceptional safari experience. The dry season from June to October is
+					ideal, as wildlife congregates at permanent water sources.
+				</p>
+				<h3>Khwai Community Concession</h3>
+				<p>
+					The Khwai Community Concession is renowned for its exceptional
+					wildlife sightings, particularly around the Khwai River. This area is
+					a prime example of a successful community-run tourism initiative,
+					offering a great and authentic safari experience that directly
+					benefits local people and conservation efforts. Wildlife viewing is
+					excellent during the dry season, from May to October, when animals are
+					concentrated near the river.
+				</p>
+				<h3>Savuti (Chobe National Park)</h3>
+				<p>
+					Savuti, a famous area within Chobe National Park, is a thrilling
+					destination for observing predator action. The region is particularly
+					famous for its elephants, which are often seen congregating around the
+					Savuti Channel. It's a rugged and exciting part of Botswana's northern
+					safari circuit. The best time to witness the high concentration of
+					elephants is during the dry season, from May to November.
+				</p>
+				<h3>Makgadikgadi Salt Pans</h3>
+				<p>
+					The Makgadikgadi Salt Pans are a vast and surreal landscape,
+					representing one of the largest salt pan systems in the world. The
+					area is incredibly stark and can feel very lonely, creating a unique
+					atmosphere of immense emptiness that is both haunting and beautiful.
+					The dry season (April to October) is the best time to visit for a true
+					sense of the desolate vastness and to see the famous meerkats.
+				</p>
+			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images/home/Kruger-lion.jpg"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
+		</StickyTextImageSection>
+	</Container>
+	<Container>
+		<StickyTextImageSection reversed={true}>
+			<div slot="text-container">
+				<h3>Kubu Island</h3>
+				<p>
+					Kubu Island is a granite outcrop in the middle of the Sua Pan. It is
+					home to a collection of magnificent baobab trees that stand on the
+					edge of the vast salt pan. This remote site is considered ancient and
+					has a spiritual significance to the local communities. The dry season
+					from April to October is the most accessible time to visit, as the pan
+					is dry and can be driven on.
+				</p>
+				<h3>Meerkat Colony</h3>
+				<p>
+					A visit to a Meerkat Colony in Botswana offers an unforgettable
+					experience with these small mammals. The meerkats are often habituated
+					to human presence, allowing visitors to get up close and personal with
+					the curious and adorable creatures as they go about their daily lives.
+					Meerkats are visible year-round, but the cooler months from May to
+					September are more comfortable for observing them.
+				</p>
+				<h3>Chobe National Park</h3>
+				<p>
+					Chobe National Park is celebrated for having the world's highest
+					concentration of elephants. Visitors can witness massive large
+					elephant herds along the Chobe River, which forms the park's northern
+					boundary. This rich and productive ecosystem is teeming with a variety
+					of wildlife. The dry season (May to October) is prime time for seeing
+					large elephant herds along the river.
+				</p>
+				<h3>Mashatu Game Reserve</h3>
+				<p>
+					Mashatu Game Reserve is a privately owned reserve often called the
+					"Land of Giants" due to its impressive populations of elephants,
+					baobab trees, and large predators. This private reserve offers a great
+					and exclusive safari experience, focusing on high-quality sightings
+					and a more intimate bush experience. The dry winter months, from June
+					to October, offer the best game viewing opportunities.
+				</p>
+			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images/home/Kruger-lion.jpg"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
+		</StickyTextImageSection>
+	</Container>
+	<Container>
+		<TextCardSection>
+			<h2 id="Zambia">Zambia</h2>
+			<strong>Parks, Game Reserves and Others</strong>
+		</TextCardSection>
+	</Container>
+	<Container>
+		<StickyTextImageSection>
+			<div slot="text-container">
+				<h3>South Luangwa National Park</h3>
+				<p>
+					Known for walking safaris and leopards, it is considered one of the
+					greatest wildlife sanctuaries in the world, with a high density of
+					game and professional guides. The Luangwa River is the lifeblood of
+					the park, attracting a diverse range of animals. The best time for
+					walking safaris and game viewing is the dry season, from April to
+					October.
+				</p>
+				<h3>Liuwa Plains National Park</h3>
+				<p>
+					Home to Africa's second-largest wildebeest migration. This vast,
+					remote grassland is a truly wild and exclusive destination. It's also
+					famous for its large hyena clans and abundant birdlife, offering a
+					safari experience far from the crowds. The wildebeest migration peaks
+					in the rainy season, from November to April, while the drier months
+					are better for general game viewing.
+				</p>
+				<h3>Lower Zambezi National Park</h3>
+				<p>
+					Spectacular for river safaris and canoeing. Situated opposite Mana
+					Pools, it offers incredible views of the Zambezi River and the
+					escarpment. The park is renowned for its large herds of elephants,
+					hippos, and buffalo, making it a diverse wildlife haven. The dry
+					season, from June to October, is the best time for game viewing as
+					animals gather at the river.
+				</p>
+			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images/home/Kruger-lion.jpg"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
+		</StickyTextImageSection>
+	</Container>
+	<Container>
+		<TextCardSection>
+			<h2 id="Zimbabwe">Zimbabwe</h2>
+			<strong>Parks, Game Reserves and Others</strong>
+		</TextCardSection>
+	</Container>
+	<Container>
+		<StickyTextImageSection reversed={true}>
+			<div slot="text-container">
+				<h3>Mana Pools National Park</h3>
+				<p>
+					Famous for walking and canoeing safaris. The park's floodplain,
+					bordered by the Zambezi River, provides stunning scenery and
+					incredible opportunities to get up close to elephants and other
+					wildlife on foot. It’s an authentic and highly sought-after wilderness
+					experience. The dry season, from May to October, is the most popular
+					time to visit due to excellent game viewing opportunities.
+				</p>
+				<h3>Gonarezhou National Park</h3>
+				<p>
+					A rugged and beautiful park in the southeast, part of the Great
+					Limpopo Transfrontier Park. Known for its massive baobab trees and the
+					Chilojo Cliffs, it offers a true wilderness experience. The park is a
+					haven for elephants and other large mammals, with fewer tourists. The
+					dry season, from June to October, is best for both wildlife viewing
+					and accessibility.
+				</p>
+				<h3>Hwange National Park</h3>
+				<p>
+					Zimbabwe's largest and most famous park is a haven for its immense
+					elephant population. The park's diverse landscapes, from desert sands
+					to grasslands, support a wide array of wildlife, including the Big
+					Five and endangered wild dogs. It's a classic safari destination,
+					renowned for its pumped waterholes that become bustling wildlife hubs
+					in the dry season. The best time to visit is during the dry season,
+					from July to October, for exceptional game viewing as animals
+					congregate at waterholes.
+				</p>
+			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images/home/Kruger-lion.jpg"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
+		</StickyTextImageSection>
+	</Container>
+	<Container>
+		<TextCardSection>
+			<h2 id="Namibia">Namibia</h2>
+			<strong>Parks, Game Reserves and Others</strong>
+		</TextCardSection>
+	</Container>
+	<Container>
+		<StickyTextImageSection>
+			<div slot="text-container">
+				<h3>Fish River Canyon</h3>
+				<p>
+					The Fish River Canyon is Africa's largest canyon. This dramatic
+					geological feature is a deeply carved, winding gorge that showcases
+					the immense power of natural erosion over millions of years. Its
+					ancient and rugged landscape is a powerful reminder of Earth's long
+					and complex history. The best time to visit is during the cooler
+					winter months, from May to September, when temperatures are ideal for
+					hiking.
+				</p>
+				<h3>Sossusvlei</h3>
+				<p>
+					Sossusvlei is a place of spectacular beauty, known for its unique and
+					breathtaking landscapes. The area is famous for its towering red
+					dunes, which are among the highest in the world. This iconic Namibian
+					destination offers a stunning contrast of deep orange sand against a
+					vast blue sky. The most popular time to visit is the dry season (May
+					to October) when the weather is mild and skies are clear, perfect for
+					photography.
+				</p>
+				<h3>Etosha National Park</h3>
+				<p>
+					Etosha National Park is an incredibly open and expansive park, perfect
+					for viewing great wildlife. It is especially famous for its numerous
+					waterholes where a wide variety of animals, including elephants,
+					lions, and giraffes, gather. This park provides a classic safari
+					experience with excellent opportunities for wildlife photography. The
+					best time for game viewing is during the dry season from June to
+					October, when animals are concentrated around waterholes.
+				</p>
+				<h3>Caprivi Strip (Bwabwata National Park)</h3>
+				<p>
+					The Caprivi Strip, now home to Bwabwata National Park, is a region
+					defined by its abundant water sources, including the Okavango and
+					Zambezi rivers. This creates a lush and green environment, a stark
+					contrast to the rest of Namibia. It's a key area for diverse wildlife,
+					including a significant elephant population. The dry season, from May
+					to October, is ideal for game viewing, though the lush landscapes are
+					beautiful year-round.
+				</p>
+			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images/home/Kruger-lion.jpg"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
+		</StickyTextImageSection>
+	</Container>
+</Layout>
+
+<style>
+	.feature-card__section {
+		margin: var(--section-margin) auto;
+	}
+	.feature-card__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--theme-grid-gap);
+	}
+	@media (max-width: 768px) {
+		.feature-card__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

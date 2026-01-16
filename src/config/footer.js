@@ -9,7 +9,6 @@ export const footerSocials = [
 		url: '',
 		icon: 'mdi:instagram',
 	},
-
 ];
 
 export const footerLists = [
@@ -30,17 +29,38 @@ export const footerLists = [
 			},
 			{
 				title: 'FAQ',
-				slug: '/FAQ'
+				slug: '/FAQ',
+			},
+		],
+	},
+	{
+		title: 'Locations',
+		items: [
+			{
+				title: 'South Africa',
+				slug: '/locations#south-africa',
+			},
+			{
+				title: 'Botswana',
+				slug: '/theme/style-guide',
+			},
+			{
+				title: 'Zambia',
+				slug: '/theme/style-guide',
+			},
+			{
+				title: 'Zimbabwe',
+				slug: '/theme/style-guide',
+			},
+			{
+				title: 'Namibia',
+				slug: '/theme/style-guide'
 			}
 		],
 	},
 	{
 		title: 'Theme',
 		items: [
-			{
-				title: 'Get Started',
-				slug: '/theme/get-started',
-			},
 			{
 				title: 'Style Guide',
 				slug: '/theme/style-guide',
@@ -59,7 +79,7 @@ export const footerLists = [
 			},
 			{
 				title: 'Landing Page 2',
-				slug: '/landing-pages/landing-2',
+				slug: '/locations',
 			},
 		],
 	},
