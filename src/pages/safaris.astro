@@ -1,0 +1,77 @@
+---
+import {
+	Container,
+	FeatureCard,
+	TextCardSection,
+	StickyTextImageSection,
+} from '@components/odyssey-theme';
+import Layout from '../layouts/Page.astro';
+import HeroSection from '../components/sections/heros/HeroSection.astro';
+
+const seo = {
+	title: 'Locations | Astro Odyssey Theme',
+	description: 'Operating locations',
+};
+---
+
+<Layout {seo}>
+	<HeroSection>
+		<div slot="text-container">
+			<h1>Safaris by Experience Africa Safaris</h1>
+			<p>
+				Browse our pre-planned packages or learn how to build your own
+				adventure.
+			</p>
+		</div>
+		<picture slot="image-container">
+			<img
+				src="assets/images/home/Casper.jpg"
+				alt="Curteis Roberts"
+				id="home-hero-image"
+			/>
+		</picture>
+	</HeroSection>
+	<Container>
+		<section class="feature-card__section">
+			<div class="feature-card__grid">
+				<FeatureCard
+					href="#packages"
+					title="Safari packages"
+					imgSrc="assets/images/home/screenshots/landing-2"
+				/>
+				<FeatureCard
+					href="#custom"
+					title="Build your own safari"
+					imgSrc="/assets/images/home/screenshots/landing-2"
+				/>
+			</div>
+		</section>
+	</Container>
+	<Container>
+		<TextCardSection>
+			<h2 id="packages">Safari packages</h2>
+			<strong>Unforgettable encounters, seamlessly planned for you</strong>
+		</TextCardSection>
+	</Container>
+    <Container>
+		<StickyTextImageSection>
+			<div slot="text-container">
+				<h3>Fish River Canyon</h3>
+                <h4></h4>
+                
+</Layout>
+<style>
+	.feature-card__section {
+		margin: var(--section-margin) auto;
+	}
+	.feature-card__grid {
+		display: grid;
+		grid-template-columns: repeat(2, 1fr);
+		gap: var(--theme-grid-gap);
+	}
+	@media (max-width: 768px) {
+		.feature-card__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+</style>

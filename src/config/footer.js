@@ -34,6 +34,19 @@ export const footerLists = [
 		],
 	},
 	{
+		title: 'Safaris',
+		items: [
+			{
+				title: 'Packages',
+				slug: '/safaris#packages'
+			},
+			{
+				title: 'Tailored Safaris',
+				slug: '/safaris#custom'
+			}
+		]
+	},
+	{
 		title: 'Locations',
 		items: [
 			{
