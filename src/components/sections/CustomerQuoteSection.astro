@@ -6,7 +6,7 @@ const {quoteText, customerName} = Astro.props;
 
 <section class="customer-quote__section">
   <Container narrow>
-    <blockquote>"{quoteText}"</blockquote>
+    <blockquote>{quoteText}</blockquote>
     <p>&mdash; {customerName}</p>
   </Container>
 </section>
@@ -15,7 +15,7 @@ const {quoteText, customerName} = Astro.props;
 .customer-quote__section {
   margin: calc(var(--section-margin) * 2) auto;
   padding: 3rem;
-  background-color: var(--theme-surface-1);
+  background-color: var(--theme-surface-2);
   text-align: center;
 }
 .customer-quote__section blockquote {
