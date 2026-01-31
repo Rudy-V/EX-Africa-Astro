@@ -71,29 +71,29 @@ export const footerLists = [
 			}
 		],
 	},
-	{
-		title: 'Theme',
-		items: [
-			{
-				title: 'Style Guide',
-				slug: '/theme/style-guide',
-			},
-			{
-				title: 'Theme Setup',
-				slug: '/theme/theme-setup',
-			},
-			{
-				title: 'Customizing Odyssey',
-				slug: '/theme/customizing-odyssey',
-			},
-			{
-				title: 'Landing Page 1',
-				slug: '/landing-pages/landing-1',
-			},
-			{
-				title: 'Landing Page 2',
-				slug: '/locations',
-			},
-		],
-	},
+	// {
+	// 	title: 'Theme',
+	// 	items: [
+	// 		{
+	// 			title: 'Style Guide',
+	// 			slug: '/theme/style-guide',
+	// 		},
+	// 		{
+	// 			title: 'Theme Setup',
+	// 			slug: '/theme/theme-setup',
+	// 		},
+	// 		{
+	// 			title: 'Customizing Odyssey',
+	// 			slug: '/theme/customizing-odyssey',
+	// 		},
+	// 		{
+	// 			title: 'Landing Page 1',
+	// 			slug: '/landing-pages/landing-1',
+	// 		},
+	// 		{
+	// 			title: 'Landing Page 2',
+	// 			slug: '/locations',
+	// 		},
+	// 	],
+	// },
 ];

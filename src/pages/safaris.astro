@@ -7,6 +7,7 @@ import {
 } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
 import HeroSection from '../components/sections/heros/HeroSection.astro';
+import ContactForm from '../components/forms/ContactForm.astro';
 
 const seo = {
 	title: 'Locations | Astro Odyssey Theme',
@@ -171,6 +172,31 @@ const seo = {
 	}
 	@media (max-width: 768px) {
 		.feature-card__grid {
+			grid-template-columns: 1fr;
+		}
+	}
+	.contact-hero__section {
+		margin: var(--section-margin) auto;
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		min-height: calc(90vh - var(--navbar-height));
+		gap: 3rem;
+	}
+	.contact-hero__text-section {
+		padding: 2rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		background-color: var(--theme-surface-2);
+		border-radius: var(--theme-shape-radius);
+	}
+	.col-2__container {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+	}
+	@media (max-width: 768px) {
+		.contact-hero__section {
 			grid-template-columns: 1fr;
 		}
 	}
