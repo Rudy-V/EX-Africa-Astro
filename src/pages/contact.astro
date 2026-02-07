@@ -39,19 +39,64 @@ const seo = {
 			<div class="contact-hero__text-section">
 				<h1>Contact Us</h1>
 				<p>
-					Please reach out to us through this contact form or alternatively any of the channels below.
+					Please reach out to us through this contact form or alternatively any
+					of the channels below.
 				</p>
-				<div>
-					<p>
-						<em><a href="tel:8008675309">(800) 867-5309</a></em> • <em
-							><a href="mailto:hello@odysseytheme.com">hello@ourcompany.com</a
-							></em
-						>
-					</p>
-				</div>
 			</div>
 			<div class="col-2__container">
 				<ContactForm />
+			</div>
+		</section>
+	</Container>
+	<Container>
+		<section class="contact-cta__section">
+			<h2>Find us elsewhere</h2>
+
+			<div class="contact-cta__grid">
+				<a
+					href="https://twitter.com/yourhandle"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="contact-cta__card"
+				>
+					<h3>Instagram</h3>
+					<p>@blah</p>
+				</a>
+
+				<a
+					href="https://github.com/yourorg"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="contact-cta__card"
+				>
+					<h3>Facebook</h3>
+					<p>@blah</p>
+				</a>
+
+				<a
+					href="https://linkedin.com/company/yourcompany"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="contact-cta__card"
+				>
+					<h3>TikTok</h3>
+					<p>@blah</p>
+				</a>
+
+				<a href="mailto:hello@ourcompany.com" class="contact-cta__card">
+					<h3>Email</h3>
+					<p>hello@ourcompany.com</p>
+				</a>
+
+				<a
+					href="https://linkedin.com/company/yourcompany"
+					target="_blank"
+					rel="noopener noreferrer"
+					class="contact-cta__card"
+				>
+					<h3>WhatsApp</h3>
+					<p>@blah</p>
+				</a>
 			</div>
 		</section>
 	</Container>
@@ -70,7 +115,7 @@ const seo = {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
-		background-color: var(--theme-surface-2);
+		background-color: var(--theme-surface-1);
 		border-radius: var(--theme-shape-radius);
 	}
 	.col-2__container {
@@ -80,6 +125,59 @@ const seo = {
 	}
 	@media (max-width: 768px) {
 		.contact-hero__section {
+			grid-template-columns: 1fr;
+		}
+	}
+	.contact-cta__section {
+		margin: var(--section-margin) auto;
+		text-align: center;
+	}
+
+	.contact-cta__section h2 {
+		margin-block: 2rem;
+	}
+
+	.contact-cta__grid {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 1.5rem;
+	}
+
+	.contact-cta__card {
+		padding: 2rem;
+		background-color: var(--theme-surface-2);
+		border-radius: var(--theme-shape-radius);
+		text-decoration: none;
+		color: inherit;
+		display: flex;
+		flex-direction: column;
+		gap: 0.5rem;
+		transition: transform 0.2s ease, box-shadow 0.2s ease;
+	}
+
+	.contact-cta__card:hover {
+		transform: translateY(-4px);
+		box-shadow: var(--theme-shadow-md);
+	}
+
+	.contact-cta__card h3 {
+		margin: 0;
+	}
+
+	.contact-cta__card p {
+		margin: 0;
+		opacity: 0.8;
+		font-size: 0.95rem;
+	}
+
+	@media (max-width: 1024px) {
+		.contact-cta__grid {
+			grid-template-columns: repeat(2, 1fr);
+		}
+	}
+
+	@media (max-width: 600px) {
+		.contact-cta__grid {
 			grid-template-columns: 1fr;
 		}
 	}
