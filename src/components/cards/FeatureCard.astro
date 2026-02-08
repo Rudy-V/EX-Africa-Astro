@@ -4,9 +4,10 @@ const {href, imgSrc, title} = Astro.props;
 
 <style>
   .feature-card__card {
-    background-color: var(--theme-surface-1);
-    color: var(--theme-on-surface-1);
+    background-color: var(--theme-surface-2);
+    color: var(--theme-on-surface-2);
     border-radius: var(--theme-shape-radius);
+    box-shadow: 0rem 0rem 0.5rem rgba(0, 0, 0, 0.377);
   }
   .feature-card__link {
     display: block;
@@ -25,12 +26,12 @@ const {href, imgSrc, title} = Astro.props;
     height: 100%;
   }
   .feature-card__card .feature-card__img {
-    --image-shadow: 0 -0.5rem 1rem rgba(138, 138, 138, 0.12);
+    /* --image-shadow: 0 -0.5rem 1rem rgba(138, 138, 138, 0.12); */
     margin: 0 auto;
     width: clamp(60%, 70%, 390px);
     height: auto;
     object-fit: cover;
-    /* border-radius: 1rem 1rem 0 0; */
+    border-radius: 1rem 1rem 0 0;
     box-shadow: var(--image-shadow);
     transform: translateY(0.5rem);
     transition: transform var(--theme-transition);
