@@ -14,6 +14,7 @@ const { seo } = Astro.props;
 <html lang="en">
 	<head>
 		<BaseHead {...seo} />
+		<Analytics />
 	</head>
 	<body>
 		<SkipLink />
@@ -23,6 +24,5 @@ const { seo } = Astro.props;
 			<slot />
 		</main>
 		<slot name="footer" />
-		<Analytics/>
 	</body>
 </html>
