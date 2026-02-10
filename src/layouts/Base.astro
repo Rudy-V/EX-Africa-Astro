@@ -2,6 +2,7 @@
 import { SkipLink } from '@components/odyssey-theme';
 import BaseHead from '../components/head/BaseHead.astro';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
+import Analytics from '@vercel/analytics/astro';
 
 export interface Props {
 	seo?: BaseHeadProps;
@@ -16,11 +17,12 @@ const { seo } = Astro.props;
 	</head>
 	<body>
 		<SkipLink />
-    <slot name="announcement-bar" />
+		<slot name="announcement-bar" />
 		<slot name="header" />
 		<main id="content" style="padding-top: 50px;">
 			<slot />
 		</main>
 		<slot name="footer" />
+		<Analytics/>
 	</body>
 </html>
