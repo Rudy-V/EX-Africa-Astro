@@ -3,6 +3,7 @@ import { SkipLink } from '@components/odyssey-theme';
 import BaseHead from '../components/head/BaseHead.astro';
 import type { Props as BaseHeadProps } from '../components/head/BaseHead.astro';
 import Analytics from '@vercel/analytics/astro';
+import SpeedInsights from '@vercel/speed-insights/astro';
 
 export interface Props {
 	seo?: BaseHeadProps;
@@ -24,5 +25,6 @@ const { seo } = Astro.props;
 			<slot />
 		</main>
 		<slot name="footer" />
+		<SpeedInsights />
 	</body>
 </html>
