@@ -7,7 +7,7 @@ import {
 } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
 import HeroSection from '../components/sections/heros/HeroSection.astro';
-import ContactForm from '../components/forms/ContactForm.astro';
+import GetStartedSection from '../components/sections/GetStartedSection.astro';
 
 const seo = {
 	title: 'Locations | Astro Odyssey Theme',
@@ -75,7 +75,7 @@ const seo = {
 			</div>
 			<picture slot="image-container">
 				<img
-					src="public/assets/images_converted/Website-73.webp"
+					src="assets/images_converted/Website-73.webp"
 					alt="Lion in the Kruger"
 					loading="lazy"
 				/>
@@ -182,7 +182,7 @@ const seo = {
 			</div>
 			<picture slot="image-container">
 				<img
-					src="/assets/images_converted/Zimbabwe EAS (23 of 35).webp"
+					src="/assets/images_converted/Elephant-5.webp"
 					alt="Lion in the Kruger"
 					loading="lazy"
 				/>
@@ -195,8 +195,60 @@ const seo = {
 				<h3>
 					Decide whether you're camping, glamping or staying in a luxury lodge
 				</h3>
+				<p>
+					<strong>Camping - </strong>The most stripped-back way to experience
+					nature, with tents close to the wild.
+				</p>
+				<p>
+					<strong>Glamping - </strong>A balance of comfort and immersion, often
+					with larger tents, proper beds, and private facilities.
+				</p>
+				<p>
+					<strong>Lodges - </strong>Unique desert-adapted wildlife and striking
+					landscapes.
+				</p>
 			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images_converted/Arathusa Safari Lodge - Water Facing 5.webp"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
 		</StickyTextImageSection>
+	</Container>
+	<Container>
+		<StickyTextImageSection>
+			<div slot="text-container">
+				<h3>Decide on your budget range</h3>
+				<p>
+					Most safaris in Southern Africa follow a rhythm: early morning game
+					drives, a rest during the day, and evening outings. Some areas allow
+					full-day drives with picnic stops, while others focus on sunrise and
+					sunset activities. Evenings might be spent around a fire in camp or in
+					the comfort of a lodge.
+				</p>
+				<p>
+					Actual costs depend on several factors, including travel season, park
+					or reserve fees, location and accessibility, availability, and the
+					level of service included. Your budget may also need to account for
+					extras such as internal flights, private vehicles, gratuities, and
+					special experiences like walking safaris or night drives. Being
+					realistic about these variables will help you narrow your options and
+					avoid surprises later.
+				</p>
+			</div>
+			<picture slot="image-container">
+				<img
+					src="/assets/images_converted/Caprivi-4.webp"
+					alt="Lion in the Kruger"
+					loading="lazy"
+				/>
+			</picture>
+		</StickyTextImageSection>
+	</Container>
+	<Container>
+		<GetStartedSection ></GetStartedSection>
 	</Container>
 </Layout>
 

@@ -19,10 +19,10 @@ export const footerLists = [
 				title: 'About',
 				slug: '/about',
 			},
-			{
-				title: 'Blog',
-				slug: '/blog',
-			},
+			// {
+			// 	title: 'Blog',
+			// 	slug: '/blog',
+			// },
 			{
 				title: 'Contact',
 				slug: '/contact',
@@ -55,19 +55,19 @@ export const footerLists = [
 			},
 			{
 				title: 'Botswana',
-				slug: '/theme/style-guide',
+				slug: '/locations#Botswana',
 			},
 			{
 				title: 'Zambia',
-				slug: '/theme/style-guide',
+				slug: '/locations#Zambia',
 			},
 			{
 				title: 'Zimbabwe',
-				slug: '/theme/style-guide',
+				slug: '/locations#Zimbabwe',
 			},
 			{
 				title: 'Namibia',
-				slug: '/theme/style-guide'
+				slug: '/locations#Namibia'
 			}
 		],
 	},

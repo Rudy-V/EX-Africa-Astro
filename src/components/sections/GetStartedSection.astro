@@ -1,0 +1,22 @@
+---
+import Container from '../core/Container.astro';
+
+const {surfaceNumber = 3} = Astro.props;
+---
+
+<section class="get-started__section" style={`background-color: var(--theme-surface-${surfaceNumber});`}>
+  <Container narrow>
+    <h2>Ready to start your adventure?</h2>
+    <p>We have years of safari experience and will happily help you.</p>
+    <a href="/contact" style="text-decoration: underline;"><strong>Click here to contact us</strong></a>
+  </Container>
+</section>
+
+<style>
+.get-started__section {
+  margin: var(--section-margin) auto;
+  padding: clamp(10vh, 12vh, 18vh) 2rem;
+  border-radius: var(--theme-shape-radius);
+  color: var(--theme-on-surface-3);
+}
+</style>

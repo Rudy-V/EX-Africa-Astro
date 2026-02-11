@@ -2,6 +2,8 @@
 import { Container, StickyTextImageSection } from '@components/odyssey-theme';
 import Layout from '../layouts/Page.astro';
 import HeroSection from '../components/sections/heros/HeroSection.astro';
+import GetStartedSection from '../components/sections/GetStartedSection.astro';
+import GetStarted from './theme/get-started.astro';
 
 const seo = {
 	title: 'FAQ | Astro Odyssey Theme',
@@ -16,7 +18,7 @@ const seo = {
 		</div>
 		<picture slot="image-container">
 			<img
-				src="public/assets/images_converted/Casper (49 of 73).webp"
+				src="assets/images_converted/Casper (49 of 73).webp"
 				alt="Curteis Roberts"
 				id="home-hero-image"
 			/>
@@ -129,32 +131,6 @@ const seo = {
 		</StickyTextImageSection>
 	</Container>
 	<Container>
-		<StickyTextImageSection reversed={true}>
-			<div slot="text-container">
-				<h2>Safaris and luxury lodges</h2>
-				<h3>What safaris do you offer?</h3>
-				<p>
-					We offer several pre-planned safaris that are notoriously planed down
-					to the smallest detail. Refer to the Safaris page for the latest
-					offering. We also offer private safaris and lodge experiences.
-				</p>
-				<h3>Where do you operate?</h3>
-				<p>
-					We are based out of South Africa but do offer safari and lodge
-					services throughout southern Africa.
-				</p><h3>Are you able to customise your safari/lodge experience?</h3>
-				<p>
-					Yes, browse the private safaris page to get an introduction to
-					designing your ideal safari.
-				</p>
-			</div>
-			<picture slot="image-container">
-				<img
-					src="/assets/images/faq/Mashatu.jpg"
-					alt="Lion in the Kruger"
-					loading="lazy"
-				/>
-			</picture>
-		</StickyTextImageSection>
+		<GetStartedSection></GetStartedSection>
 	</Container>
 </Layout>
