@@ -35,13 +35,6 @@ const image = new URL(Astro.props.image || './social.webp', Astro.site);
 <meta property="og:description" content={description} />
 <meta property="og:image" content={image} />
 
-<!-- Twitter -->
-<meta property="twitter:card" content="summary_large_image" />
-<meta property="twitter:url" content={canonicalURL} />
-<meta property="twitter:title" content={title} />
-<meta property="twitter:description" content={description} />
-<meta property="twitter:image" content={image} />
-
 <!-- For Demonstration of the themes -->
 {settings.enableThemeSwitcher && <ThemeProvider />}
 

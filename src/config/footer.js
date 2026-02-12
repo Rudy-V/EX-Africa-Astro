@@ -1,13 +1,34 @@
 export const footerSocials = [
+
+	{
+		name: 'Instagram',
+		url: 'https://www.instagram.com/theexperienceafrica/',
+		icon: 'mdi:instagram',
+	},
+	{
+		name: 'Facebook',
+		url: 'https://www.facebook.com/Thexperienceafrica',
+		icon: 'mdi:facebook',
+	},
 	{
 		name: 'Youtube',
-		url: '',
+		url: 'https://www.youtube.com/Theexperienceafrica/featured',
 		icon: 'mdi:youtube',
 	},
 	{
-		name: 'Instagram',
-		url: '',
-		icon: 'mdi:instagram',
+		name: 'Email',
+		url: 'mailto:curteis@experienceafrica.co.za',
+		icon: 'mdi:email',
+	},
+	{
+		name: 'WhatsApp',
+		url: 'https://wa.me/27715561035',
+		icon: 'mdi:whatsapp',
+	},
+	{
+		name: 'Phone',
+		url: 'tel:+27715561035',
+		icon: 'mdi:phone',
 	},
 ];
 
