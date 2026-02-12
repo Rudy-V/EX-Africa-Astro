@@ -8,6 +8,5 @@ import lit from "@astrojs/lit";
 export default defineConfig({
   output: 'static', // Ensure fully static output for Vercel free tier
   site: 'https://odyssey-theme.sapling.supply/', // Your public domain, e.g.: https://my-site.dev/. Used to generate sitemaps and canonical URLs.
-  sitemap: true, // Generate sitemap (set to "false" to disable)
   integrations: [sitemap(), mdx(), lit(), icon()], // Add renderers to the config
 });
