@@ -1,32 +1,209 @@
 ---
-import { Button, FormInput, FormSelect, FormTextarea } from '@components/odyssey-theme';
+import {
+	Button,
+	FormInput,
+	FormSelect,
+	FormTextarea,
+} from '@components/odyssey-theme';
 
 const selectOptions = [
-  "Preplanned Safaris",
-  "Custom Safaris",
-  "General Services",
-  "Other"
-]
-
+	'Preplanned Safaris',
+	'Custom Safaris',
+	'General Services',
+	'Other',
+];
 ---
 
-<form name="Contact Form" method="POST" action="/contact-thank-you">
-  <FormInput type="text" label="Name" name="Name" placeholder="John Doe" />
-  <FormInput type="email" label="Email" name="Email" placeholder="hello@example.com" />
-  <FormInput type="tel" label="Contact Number" name="Number" placeholder="+27123456789" />
-  <FormSelect label="How can we assist you?" options={selectOptions} />
-  <FormTextarea label="Message" name="Message" placeholder="Your message here..." />
-  <Button>Submit</Button>
+<form
+	action="https://api.web3forms.com/submit"
+	method="POST"
+	id="safari-contact-form"
+	class="needs-validation"
+	novalidate
+>
+	<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
+	<input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+
+	<div class="form-group">
+		<FormInput
+			type="text"
+			label="Name"
+			name="name"
+			placeholder="John Doe"
+			required
+		/>
+		<div class="error-msg">Please provide your full name.</div>
+	</div>
+
+	<div class="form-group">
+		<FormInput
+			type="email"
+			label="Email"
+			name="email"
+			placeholder="hello@example.com"
+      pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
+			required
+		/>
+		<div class="error-msg">Please provide a valid email address.</div>
+	</div>
+
+	<div class="form-group">
+		<FormInput
+			type="tel"
+			label="Contact Number"
+			name="phone"
+			placeholder="+27123456789"
+			required
+			pattern="[+]?[0-9]{9,15}"
+		/>
+		<div class="error-msg">
+			Please enter a valid phone number (e.g. +27123456789).
+		</div>
+	</div>
+
+	<div class="form-group">
+		<FormSelect
+			label="How can we assist you?"
+			name="interest"
+			required
+			options={selectOptions}
+		/>
+		<div class="error-msg">
+			Please select an option to let us know how we can assist you.
+		</div>
+	</div>
+
+	<div class="form-group">
+		<FormTextarea
+			label="Message"
+			name="message"
+			placeholder="Your message here..."
+			required
+		/>
+		<div class="error-msg">Please enter your message.</div>
+	</div>
+
+	<div class="submit-container">
+		<Button type="submit">Send Message</Button>
+	</div>
+
+	<div id="result-message" class="mt-3 text-center"></div>
 </form>
 
-<style>
-  form {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 1rem;
+<script is:inline>
+	function setupForm() {
+		const form = document.getElementById('safari-contact-form');
+		const result = document.getElementById('result-message');
 
-    .btn {
-      width: 100%;
-    }
-  }
+		if (!form || form.dataset.initialized) return;
+
+		form.addEventListener('submit', function (e) {
+			e.preventDefault();
+			form.classList.add('was-validated');
+
+			if (!form.checkValidity()) {
+				const firstInvalid = form.querySelectorAll(':invalid')[0];
+				if (firstInvalid) firstInvalid.focus();
+				return;
+			}
+
+			const formData = new FormData(form);
+			const object = Object.fromEntries(formData);
+			const json = JSON.stringify(object);
+
+			result.className = 'mt-3 text-center';
+			result.innerHTML = 'Sending...';
+
+			fetch('https://api.web3forms.com/submit', {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+					Accept: 'application/json',
+				},
+				body: json,
+			})
+				.then(async response => {
+					if (response.status == 200) {
+						result.classList.add('success-text');
+						result.innerHTML = 'Success! We have received your inquiry.';
+						form.reset();
+						form.classList.remove('was-validated');
+					} else {
+						result.classList.add('error-text');
+						result.innerHTML = 'Something went wrong. Please try again.';
+					}
+				})
+				.catch(() => {
+					result.classList.add('error-text');
+					result.innerHTML = 'Error connecting to server.';
+				})
+				.finally(() => {
+					setTimeout(() => {
+						result.innerHTML = '';
+					}, 5000);
+				});
+		});
+
+		form.dataset.initialized = 'true';
+	}
+
+	setupForm();
+	document.addEventListener('astro:page-load', setupForm);
+</script>
+
+<style>
+	#safari-contact-form {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 1.2rem;
+	}
+
+	.form-group {
+		display: flex;
+		flex-direction: column;
+	}
+
+	/* Make the Button component full width */
+	.submit-container :global(button) {
+		width: 100% !important;
+	}
+
+	/* Error message base style */
+	.error-msg {
+		display: none;
+		color: #dc3545;
+		font-size: 0.875rem;
+		margin-top: 0.25rem;
+	}
+
+	/* Highlight invalid inputs AFTER submit */
+	#safari-contact-form.was-validated :global(input:invalid),
+	#safari-contact-form.was-validated :global(textarea:invalid),
+	#safari-contact-form.was-validated :global(select:invalid) {
+		border-color: #dc3545;
+	}
+
+	/* Show error message when form-group contains invalid field */
+	#safari-contact-form.was-validated
+		:global(.form-group:has(input:invalid))
+		.error-msg,
+	#safari-contact-form.was-validated
+		:global(.form-group:has(textarea:invalid))
+		.error-msg,
+	#safari-contact-form.was-validated
+		:global(.form-group:has(select:invalid))
+		.error-msg {
+		display: block;
+	}
+	.success-text {
+		color: #16a34a;
+		font-weight: 600;
+		margin-top: 1rem;
+	}
+
+	.error-text {
+		color: #dc2626;
+		font-weight: 600;
+		margin-top: 1rem;
+	}
 </style>

@@ -33,6 +33,11 @@ const { footerSocials, footerLists, copyrightName, background, color, showPlug: 
             ))
           }
         </ul>
+        <img 
+          src="/assets/images_converted/SATSA-logo.webp" 
+          alt="SATSA logo" 
+          class="footer-logo__image"
+        />
       </div>
       {
         footerLists.map((list) => (
@@ -80,6 +85,12 @@ const { footerSocials, footerLists, copyrightName, background, color, showPlug: 
   }
   .footer-socials__item {
     margin-right: 0.5rem;
+  }
+  .footer-logo__image {
+    max-width: 150px;
+    height: auto;
+    margin-top: 1rem;
+    display: block;
   }
   .footer-link__list {
     margin: 0;
