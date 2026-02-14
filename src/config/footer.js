@@ -27,7 +27,7 @@ export const footerSocials = [
 	},
 	{
 		name: 'Phone',
-		url: 'tel:+27715561035',
+		url: 'tel:+27647388344',
 		icon: 'mdi:phone',
 	},
 ];

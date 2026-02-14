@@ -15,8 +15,8 @@ export default {
   // Contact & social (used by templates / meta)
 	contact: {
 		email: 'curteis@experienceafrica.co.za',
-		phone: '+27715561035',
-		whatsapp: '+27715561035'
+		phone: '+27647388344',
+		whatsapp: '+27647388344'
 	},
 
 	social: {
