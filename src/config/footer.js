@@ -22,7 +22,7 @@ export const footerSocials = [
 	},
 	{
 		name: 'WhatsApp',
-		url: 'https://wa.me/27715561035',
+		url: 'https://wa.me/27647388344',
 		icon: 'mdi:whatsapp',
 	},
 	{
