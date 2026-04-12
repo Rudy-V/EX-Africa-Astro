@@ -23,6 +23,7 @@ pnpm-debug.log*
 
 # editor settings
 .vscode/
+.idx/
 
 icon.d.ts
 *.cache
