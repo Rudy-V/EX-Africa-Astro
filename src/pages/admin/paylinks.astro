@@ -1,0 +1,298 @@
+---
+import Layout from '../../layouts/Page.astro';
+import { Container } from '@components/odyssey-theme';
+
+const seo = {
+  title: 'Create Payment Link | Admin',
+  description: 'Create YOCO payment links for customers.',
+};
+---
+
+<Layout {seo}>
+  <Container>
+    <section class="admin__section">
+      <div class="admin__card">
+        <h1>Create Payment Link</h1>
+        <form id="paylink-form">
+          <div class="admin__field">
+            <label for="description">Description</label>
+            <input
+              type="text"
+              id="description"
+              name="description"
+              placeholder="e.g. Safari deposit — John Smith"
+              required
+            />
+          </div>
+          <div class="admin__field">
+            <label for="amount">Amount (ZAR)</label>
+            <input
+              type="number"
+              id="amount"
+              name="amount"
+              placeholder="0.00"
+              min="1"
+              step="0.01"
+              required
+            />
+          </div>
+          <button type="submit" id="submit-btn">Create Payment Link</button>
+        </form>
+
+        <div id="result" class="admin__result" style="display:none;">
+          <h2>Payment Link Created</h2>
+          <div class="admin__link-box">
+            <label>Send this link to your customer:</label>
+            <div class="admin__copy-row">
+              <input type="text" id="paylink-url" readonly />
+              <button type="button" id="copy-btn">Copy</button>
+            </div>
+          </div>
+          <div class="admin__link-box">
+            <label>Or use the YOCO hosted page:</label>
+            <div class="admin__copy-row">
+              <input type="text" id="redirect-url" readonly />
+              <button type="button" id="copy-redirect-btn">Copy</button>
+            </div>
+          </div>
+          <button type="button" id="new-link-btn" class="admin__new-btn">Create Another</button>
+        </div>
+
+        <div id="error" class="admin__error" style="display:none;"></div>
+      </div>
+    </section>
+  </Container>
+</Layout>
+
+<script is:inline>
+  const form = document.getElementById('paylink-form');
+  const submitBtn = document.getElementById('submit-btn');
+  const resultDiv = document.getElementById('result');
+  const errorDiv = document.getElementById('error');
+  const paylinkUrl = document.getElementById('paylink-url');
+  const redirectUrl = document.getElementById('redirect-url');
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    errorDiv.style.display = 'none';
+    resultDiv.style.display = 'none';
+    submitBtn.disabled = true;
+    submitBtn.textContent = 'Creating...';
+
+    const description = document.getElementById('description').value;
+    const amountRands = parseFloat(document.getElementById('amount').value);
+    const amountCents = Math.round(amountRands * 100);
+
+    try {
+      const res = await fetch('/api/create-paylink', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          amount: amountCents,
+          currency: 'ZAR',
+          description: description,
+        }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        throw new Error(data.error || 'Failed to create payment link');
+      }
+
+      paylinkUrl.value = data.paymentUrl;
+      redirectUrl.value = data.redirectUrl;
+      resultDiv.style.display = 'block';
+      form.style.display = 'none';
+    } catch (err) {
+      errorDiv.textContent = err.message;
+      errorDiv.style.display = 'block';
+    } finally {
+      submitBtn.disabled = false;
+      submitBtn.textContent = 'Create Payment Link';
+    }
+  });
+
+  document.getElementById('copy-btn').addEventListener('click', () => {
+    paylinkUrl.select();
+    navigator.clipboard.writeText(paylinkUrl.value);
+    document.getElementById('copy-btn').textContent = 'Copied!';
+    setTimeout(() => document.getElementById('copy-btn').textContent = 'Copy', 2000);
+  });
+
+  document.getElementById('copy-redirect-btn').addEventListener('click', () => {
+    redirectUrl.select();
+    navigator.clipboard.writeText(redirectUrl.value);
+    document.getElementById('copy-redirect-btn').textContent = 'Copied!';
+    setTimeout(() => document.getElementById('copy-redirect-btn').textContent = 'Copy', 2000);
+  });
+
+  document.getElementById('new-link-btn').addEventListener('click', () => {
+    resultDiv.style.display = 'none';
+    form.style.display = 'block';
+    form.reset();
+  });
+</script>
+
+<style>
+  .admin__section {
+    margin: var(--section-margin) auto;
+    min-height: calc(70vh - var(--navbar-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  .admin__card {
+    background-color: var(--theme-surface-1);
+    border-radius: var(--theme-shape-radius);
+    padding: 3rem;
+    max-width: 500px;
+    width: 100%;
+  }
+
+  .admin__card h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .admin__field {
+    margin-bottom: 1.25rem;
+  }
+
+  .admin__field label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .admin__field input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: calc(var(--theme-shape-radius) / 2);
+    font-size: 1rem;
+    background: var(--theme-bg);
+    box-sizing: border-box;
+  }
+
+  .admin__field input:focus {
+    outline: 2px solid var(--theme-primary);
+    outline-offset: 1px;
+  }
+
+  button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary);
+    border: none;
+    border-radius: var(--theme-button-border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--theme-transition);
+  }
+
+  button[type="submit"]:hover:not(:disabled) {
+    background-color: var(--theme-primary-hover);
+  }
+
+  button[type="submit"]:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
+
+  .admin__result {
+    text-align: center;
+  }
+
+  .admin__result h2 {
+    font-size: 1.25rem;
+    margin-bottom: 1.5rem;
+    color: #193819;
+  }
+
+  .admin__link-box {
+    text-align: left;
+    margin-bottom: 1.25rem;
+  }
+
+  .admin__link-box label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+  }
+
+  .admin__copy-row {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .admin__copy-row input {
+    flex: 1;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: calc(var(--theme-shape-radius) / 2);
+    font-size: 0.85rem;
+    background: var(--theme-bg);
+    min-width: 0;
+  }
+
+  .admin__copy-row button {
+    padding: 0.6rem 1rem;
+    background-color: var(--theme-surface-2);
+    color: var(--theme-on-surface-2);
+    border: none;
+    border-radius: calc(var(--theme-shape-radius) / 2);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+    transition: background-color var(--theme-transition);
+  }
+
+  .admin__copy-row button:hover {
+    opacity: 0.9;
+  }
+
+  .admin__new-btn {
+    display: inline-block;
+    margin-top: 1.5rem;
+    padding: 0.75rem 2rem;
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary);
+    border: none;
+    border-radius: var(--theme-button-border-radius);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color var(--theme-transition);
+  }
+
+  .admin__new-btn:hover {
+    background-color: var(--theme-primary-hover);
+  }
+
+  .admin__error {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background-color: #fef2f2;
+    color: #991b1b;
+    border-radius: calc(var(--theme-shape-radius) / 2);
+    font-size: 0.9rem;
+    text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .admin__card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
