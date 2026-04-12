@@ -1,0 +1,106 @@
+---
+import Layout from '../../layouts/Page.astro';
+import { Container } from '@components/odyssey-theme';
+
+const seo = {
+  title: 'Payment Cancelled | Experience Africa Safaris',
+  description: 'Your payment was cancelled.',
+};
+---
+
+<Layout {seo}>
+  <Container>
+    <section class="paylink-result__section">
+      <div class="paylink-result__card">
+        <div class="paylink-result__icon paylink-result__icon--warn">&#8635;</div>
+        <h1>Payment Cancelled</h1>
+        <p>
+          Your payment was not completed. No charges have been made.
+        </p>
+        <p class="paylink-result__subtext">
+          If you'd like to try again, please use the payment link that was sent to you.
+          For assistance, contact us at
+          <a href="mailto:curteis@experienceafrica.co.za">curteis@experienceafrica.co.za</a>
+          or via WhatsApp at
+          <a href="https://wa.me/27647388344" target="_blank" rel="noopener noreferrer">+27 64 738 8344</a>.
+        </p>
+        <a href="/" class="paylink-result__button">Back to Home</a>
+      </div>
+    </section>
+  </Container>
+</Layout>
+
+<style>
+  .paylink-result__section {
+    margin: var(--section-margin) auto;
+    min-height: calc(70vh - var(--navbar-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem 0;
+  }
+
+  .paylink-result__card {
+    background-color: var(--theme-surface-1);
+    border-radius: var(--theme-shape-radius);
+    padding: 3rem;
+    max-width: 500px;
+    width: 100%;
+    text-align: center;
+  }
+
+  .paylink-result__card h1 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .paylink-result__icon {
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1.5rem;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+
+  .paylink-result__icon--warn {
+    background-color: #92400e;
+    color: #fff;
+  }
+
+  .paylink-result__subtext {
+    font-size: 0.9rem;
+    opacity: 0.7;
+    margin-top: 1.5rem;
+    line-height: 1.6;
+  }
+
+  .paylink-result__subtext a {
+    color: var(--theme-primary);
+  }
+
+  .paylink-result__button {
+    display: inline-block;
+    margin-top: 2rem;
+    padding: 0.75rem 2rem;
+    background-color: var(--theme-primary);
+    color: var(--theme-on-primary);
+    text-decoration: none;
+    border-radius: var(--theme-button-border-radius);
+    font-weight: 600;
+    transition: background-color var(--theme-transition);
+  }
+
+  .paylink-result__button:hover {
+    background-color: var(--theme-primary-hover);
+  }
+
+  @media (max-width: 600px) {
+    .paylink-result__card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
