@@ -1,101 +1,262 @@
 ---
-import {
-	Button,
-	FormInput,
-	FormSelect,
-	FormTextarea,
-} from '@components/odyssey-theme';
-
-const selectOptions = [
-	'Preplanned Safaris',
-	'Custom Safaris',
-	'General Services',
-	'Other',
-];
+import { FormInput, FormTextarea } from '@components/odyssey-theme';
+const scriptURL = import.meta.env.PUBLIC_GOOGLE_SCRIPT_URL;
 ---
 
-<form
-	action="https://api.web3forms.com/submit"
-	method="POST"
-	id="safari-contact-form"
-	class="needs-validation"
-	novalidate
->
-	<input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE" />
-	<input type="checkbox" class="hidden" style="display:none" name="botcheck" />
+<form id="safariForm" class="needs-validation" novalidate data-script-url={scriptURL}>
 
-	<div class="form-group">
-		<FormInput
-			type="text"
-			label="Name"
-			name="name"
-			placeholder="John Doe"
-			required
-		/>
-		<div class="error-msg">Please provide your full name.</div>
-	</div>
+	<!-- Safari Details -->
+	<div class="form-section">
+		<h3 class="section-title">Safari Details</h3>
+		<div class="form-grid">
 
-	<div class="form-group">
-		<FormInput
-			type="email"
-			label="Email"
-			name="email"
-			placeholder="hello@example.com"
-      pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$"
-			required
-		/>
-		<div class="error-msg">Please provide a valid email address.</div>
-	</div>
+			<div class="form-group full-width">
+				<div class="form-field__container">
+					<label for="service_type">What are you looking for?</label>
+					<select id="service_type" name="service_type" required>
+						<option value="" disabled selected>Select service type...</option>
+						<option value="Guided Safari Only">Guided Safari Only</option>
+						<option value="Guided Safari & Accommodation">Guided Safari &amp; Accommodation</option>
+						<option value="Accommodation Only">Accommodation Only</option>
+					</select>
+				</div>
+				<div class="error-msg">Please select a service type.</div>
+			</div>
 
-	<div class="form-group">
-		<FormInput
-			type="tel"
-			label="Contact Number"
-			name="phone"
-			placeholder="+27123456789"
-			required
-			pattern="[+]?[0-9]{9,15}"
-		/>
-		<div class="error-msg">
-			Please enter a valid phone number (e.g. +27123456789).
+			<div class="form-group">
+				<div class="form-field__container">
+					<label for="arrival_date">Preferred Start Date</label>
+					<input type="date" id="arrival_date" name="arrival_date" required />
+				</div>
+				<div class="error-msg">Please select a start date.</div>
+			</div>
+
+			<div class="form-group">
+				<div class="form-field__container">
+					<label for="nights">Nights</label>
+					<input type="number" id="nights" name="nights" min="1" value="3" required />
+				</div>
+				<div class="error-msg">Please enter the number of nights.</div>
+			</div>
+
+			<div class="form-group">
+				<div class="form-field__container">
+					<label for="pax">Guests (Pax)</label>
+					<input type="number" id="pax" name="pax" min="1" value="2" required />
+				</div>
+				<div class="error-msg">Please enter the number of guests.</div>
+			</div>
+
+			<div class="form-group">
+				<div class="form-field__container">
+					<label for="park_selection">Destination / Park</label>
+					<select id="park_selection" name="park_selection" required>
+						<option value="" disabled selected>Select destination...</option>
+						<option value="Kruger National Park">Kruger National Park</option>
+						<option value="Greater Kruger: Sabi Sands">Greater Kruger: Sabi Sands</option>
+						<option value="Greater Kruger: Timbavati">Greater Kruger: Timbavati</option>
+						<option value="Kgalagadi Transfrontier Park">Kgalagadi Transfrontier Park</option>
+						<option value="Other SANParks">Other SANParks – please specify in notes</option>
+						<option value="Overlanding">Overlanding Inquiry</option>
+					</select>
+				</div>
+				<div class="error-msg">Please select a destination.</div>
+			</div>
+
 		</div>
 	</div>
 
-	<div class="form-group">
-		<FormSelect
-			label="How can we assist you?"
-			name="interest"
-			required
-			options={selectOptions}
-		/>
-		<div class="error-msg">
-			Please select an option to let us know how we can assist you.
+	<!-- Accommodation -->
+	<div id="accommodation_section" class="form-section" style="display:none;">
+		<h3 class="section-title">Accommodation</h3>
+		<div class="form-grid">
+
+			<div class="form-group full-width">
+				<div class="form-field__container">
+					<label for="accommodation">Preference</label>
+					<select id="accommodation" name="accommodation">
+						<option value="" disabled selected>Please select a destination first...</option>
+					</select>
+				</div>
+				<div id="accommodation_error" class="error-msg">Please select a Destination / Park first to view accommodation options.</div>
+			</div>
+
+			<div id="budget_section" class="form-group full-width" style="display:none;">
+				<div class="form-field__container">
+					<label for="budget">Budget per person per night (PPPN)</label>
+					<select id="budget" name="budget">
+						<option value="" disabled selected>Please select accommodation first...</option>
+					</select>
+				</div>
+				<div class="error-msg">Please select a budget.</div>
+			</div>
+
 		</div>
 	</div>
 
-	<div class="form-group">
-		<FormTextarea
-			label="Message"
-			name="message"
-			placeholder="Your message here..."
-			required
-		/>
-		<div class="error-msg">Please enter your message.</div>
+	<!-- Contact Info -->
+	<div class="form-section">
+		<h3 class="section-title">Contact Info</h3>
+		<div class="form-grid">
+
+			<div class="form-group full-width">
+				<FormInput type="text" label="Full Name" name="full_name" placeholder="Jane Smith" required />
+				<div class="error-msg">Please provide your full name.</div>
+			</div>
+
+			<div class="form-group">
+				<FormInput type="email" label="Email" name="email" placeholder="hello@example.com" required />
+				<div class="error-msg">Please provide a valid email address.</div>
+			</div>
+
+			<div class="form-group">
+				<div class="form-field__container">
+					<label for="phone_number">Phone</label>
+					<div class="phone-row">
+						<select id="country_code" name="country_code" required>
+							<option value="+27" selected>+27 (ZA)</option>
+							<option value="+1">+1 (US/CA)</option>
+							<option value="+44">+44 (UK)</option>
+							<option value="+49">+49 (DE)</option>
+							<option value="+31">+31 (NL)</option>
+							<option value="+61">+61 (AU)</option>
+							<option value="+91">+91 (IN)</option>
+							<option value="+971">+971 (UAE)</option>
+							<option value="Other">Other</option>
+						</select>
+						<input type="tel" id="phone_number" name="phone_number" placeholder="Number..." required />
+					</div>
+				</div>
+				<div class="error-msg">Please provide a valid phone number.</div>
+			</div>
+
+			<div class="form-group full-width">
+				<FormTextarea label="Notes" name="notes" placeholder="Include any specific requirements, preferences, or questions..." />
+			</div>
+
+		</div>
 	</div>
 
 	<div class="submit-container">
-		<Button type="submit">Send Message</Button>
+		<button type="submit" id="submitBtn" class="btn">Send Inquiry</button>
 	</div>
+	<p id="statusMessage" class="status-msg" style="display:none;"></p>
 
-	<div id="result-message" class="mt-3 text-center"></div>
 </form>
 
 <script is:inline>
-	function setupForm() {
-		const form = document.getElementById('safari-contact-form');
-		const result = document.getElementById('result-message');
-
+	function setupSafariForm() {
+		const form = document.getElementById('safariForm');
 		if (!form || form.dataset.initialized) return;
+
+		const dateInput = document.getElementById('arrival_date');
+		if (dateInput) {
+			dateInput.min = new Date().toISOString().split('T')[0];
+		}
+
+		const parkSelect = document.getElementById('park_selection');
+		const accomSelect = document.getElementById('accommodation');
+		const accomError = document.getElementById('accommodation_error');
+		const serviceSelect = document.getElementById('service_type');
+		const accomSection = document.getElementById('accommodation_section');
+		const budgetSection = document.getElementById('budget_section');
+		const budgetSelect = document.getElementById('budget');
+
+		const accommodationOptions = {
+			'Kruger National Park': [
+				'SANParks Rest Camps',
+				'Private eg Skukuza Safari Lodge, Shalati, Nkuhlu Tented Camp etc',
+				'Outside Kruger - Villa (Paul Kruger Gate)',
+				'Outside Kruger - Hotel',
+			],
+			'Greater Kruger: Sabi Sands': ['Private: Lodge - all inclusive'],
+			'Greater Kruger: Timbavati': ['Private: Lodge - all inclusive'],
+			'Kgalagadi Transfrontier Park': ['SANParks Rest Camps'],
+			'Other SANParks': ['SANParks Rest Camps'],
+			'Overlanding': ['Camping / Overlanding'],
+		};
+
+		const budgetOptions = {
+			'SANParks Rest Camps': [
+				'Camping - R500 PPPN',
+				'Entry level - R750 PPPN',
+				'Mid range - R1250 PPPN',
+				'Guest house - R2000 PPPN',
+			],
+			'Private eg Skukuza Safari Lodge, Shalati, Nkuhlu Tented Camp etc': [
+				'R2,000 PPPN', 'R4,000 PPPN', 'R10,000 PPPN',
+			],
+			'Outside Kruger - Villa (Paul Kruger Gate)': [
+				'R1,000 PPPN', 'R2,000 PPPN', 'R3,000 PPPN',
+			],
+			'Outside Kruger - Hotel': [
+				'R1,000 PPPN', 'R2,000 PPPN', 'R5,000 PPPN',
+			],
+			'Private: Lodge - all inclusive': [
+				'R10,000 PPPN', 'R20,000 PPPN', 'From R30,000+ PPPN',
+			],
+			'Camping / Overlanding': [
+				'Camping - R500 PPPN', 'Entry level - R750 PPPN', 'Mid range - R1250 PPPN',
+			],
+		};
+
+		function updateBudgetDropdown() {
+			const accom = accomSelect.value;
+			budgetSelect.innerHTML = '<option value="" disabled selected>Select an approximate budget...</option>';
+			if (accom && budgetOptions[accom]) {
+				budgetOptions[accom].forEach(opt => {
+					budgetSelect.innerHTML += '<option value="' + opt + '">' + opt + '</option>';
+				});
+			}
+		}
+
+		function updateDropdowns() {
+			const park = parkSelect.value;
+			const service = serviceSelect.value;
+
+			if (service === 'Guided Safari Only') {
+				accomSection.style.display = 'none';
+				accomSelect.required = false;
+				budgetSection.style.display = 'none';
+				budgetSelect.required = false;
+				budgetSelect.value = '';
+				return;
+			}
+
+			accomSection.style.display = '';
+			accomSelect.required = true;
+			accomSelect.innerHTML = '<option value="" disabled selected>Select accommodation type...</option>';
+
+			if (park && accommodationOptions[park]) {
+				accommodationOptions[park].forEach(opt => {
+					accomSelect.innerHTML += '<option value="' + opt + '">' + opt + '</option>';
+				});
+				accomSelect.value = '';
+				accomError.innerText = 'Please select an accommodation preference.';
+			} else {
+				accomError.innerText = 'Please select a Destination / Park first to view accommodation options.';
+			}
+
+			if (service === 'Accommodation Only' || service === 'Guided Safari & Accommodation') {
+				budgetSection.style.display = 'block';
+				budgetSelect.required = true;
+			} else {
+				budgetSection.style.display = 'none';
+				budgetSelect.required = false;
+				budgetSelect.value = '';
+			}
+
+			updateBudgetDropdown();
+		}
+
+		if (parkSelect) parkSelect.addEventListener('change', updateDropdowns);
+		if (serviceSelect) serviceSelect.addEventListener('change', updateDropdowns);
+		if (accomSelect) accomSelect.addEventListener('change', updateBudgetDropdown);
+
+		const statusMsg = document.getElementById('statusMessage');
+		const submitBtn = document.getElementById('submitBtn');
+
+		const scriptURL = form.dataset.scriptUrl;
 
 		form.addEventListener('submit', function (e) {
 			e.preventDefault();
@@ -107,55 +268,79 @@ const selectOptions = [
 				return;
 			}
 
+			submitBtn.disabled = true;
+			submitBtn.innerText = 'Sending...';
+			statusMsg.style.display = 'none';
+
 			const formData = new FormData(form);
-			const object = Object.fromEntries(formData);
-			const json = JSON.stringify(object);
+			const data = {};
+			formData.forEach((value, key) => (data[key] = value));
+			data.phone = data.country_code + ' ' + data.phone_number;
+			delete data.country_code;
+			delete data.phone_number;
 
-			result.className = 'mt-3 text-center';
-			result.innerHTML = 'Sending...';
-
-			fetch('https://api.web3forms.com/submit', {
+			fetch(scriptURL, {
 				method: 'POST',
-				headers: {
-					'Content-Type': 'application/json',
-					Accept: 'application/json',
-				},
-				body: json,
+				mode: 'no-cors',
+				headers: { 'Content-Type': 'application/json' },
+				body: JSON.stringify(data),
 			})
-				.then(async response => {
-					if (response.status == 200) {
-						result.classList.add('success-text');
-						result.innerHTML = 'Success! We have received your inquiry.';
-						form.reset();
-						form.classList.remove('was-validated');
-					} else {
-						result.classList.add('error-text');
-						result.innerHTML = 'Something went wrong. Please try again.';
-					}
+				.then(() => {
+					statusMsg.style.display = 'block';
+					statusMsg.className = 'status-msg success-text';
+					statusMsg.innerText = 'Inquiry sent successfully! We will be in touch soon.';
+					form.reset();
+					form.classList.remove('was-validated');
+					if (budgetSection) budgetSection.style.display = 'none';
+					accomSelect.innerHTML = '<option value="" disabled selected>Please select a destination first...</option>';
+					budgetSelect.innerHTML = '<option value="" disabled selected>Please select accommodation first...</option>';
+					submitBtn.disabled = false;
+					submitBtn.innerText = 'Send Inquiry';
 				})
-				.catch(() => {
-					result.classList.add('error-text');
-					result.innerHTML = 'Error connecting to server.';
-				})
-				.finally(() => {
-					setTimeout(() => {
-						result.innerHTML = '';
-					}, 5000);
+				.catch(error => {
+					console.error('Error!', error.message);
+					statusMsg.style.display = 'block';
+					statusMsg.className = 'status-msg error-text';
+					statusMsg.innerText = 'Error connecting to server. Please try again.';
+					submitBtn.disabled = false;
+					submitBtn.innerText = 'Send Inquiry';
 				});
 		});
 
 		form.dataset.initialized = 'true';
 	}
 
-	setupForm();
-	document.addEventListener('astro:page-load', setupForm);
+	setupSafariForm();
+	document.addEventListener('astro:page-load', setupSafariForm);
 </script>
 
 <style>
-	#safari-contact-form {
+	/* ── Layout ─────────────────────────────────────────── */
+	#safariForm {
 		display: grid;
 		grid-template-columns: 1fr;
-		gap: 1.2rem;
+		gap: 1.5rem;
+	}
+
+	.form-section {
+		display: flex;
+		flex-direction: column;
+		gap: 0.75rem;
+		padding-bottom: 1.5rem;
+		border-bottom: 1px solid var(--form-field-border-color, #ccc);
+	}
+
+	.section-title {
+		font-family: var(--theme-font-family-serif, serif);
+		font-size: var(--font-size-md, 1.25rem);
+		color: var(--theme-on-bg, #000);
+		margin-bottom: 0.25rem;
+	}
+
+	.form-grid {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 1rem;
 	}
 
 	.form-group {
@@ -163,47 +348,161 @@ const selectOptions = [
 		flex-direction: column;
 	}
 
-	/* Make the Button component full width */
-	.submit-container :global(button) {
-		width: 100% !important;
+	.full-width {
+		grid-column: span 2;
 	}
 
-	/* Error message base style */
+	/* ── Field containers & inputs ───────────────────────── */
+
+	/* Plain-HTML fields — mirror the theme component styles */
+	.form-field__container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.form-field__container label {
+		margin-bottom: 0.3rem;
+		font-family: var(--theme-font-family-sans, sans-serif);
+		font-size: var(--font-size-sm, 0.9rem);
+		font-weight: 500;
+		color: var(--theme-on-bg, #000);
+	}
+
+	.form-field__container input,
+	.form-field__container select,
+	.form-field__container textarea {
+		width: 100%;
+		padding: 0.5rem;
+		border: 2px solid var(--form-field-border-color, #ccc);
+		color: var(--form-field-input-color, #000);
+		border-radius: var(--form-field-border-radius, 0.25rem);
+		outline-style: none;
+		font-size: 1rem;
+		font-family: inherit;
+		background-color: var(--theme-surface-1);
+		-webkit-appearance: none;
+	}
+
+	.form-field__container input:focus,
+	.form-field__container select:focus,
+	.form-field__container textarea:focus {
+		border-color: var(--form-field-border-focus-color, #000);
+	}
+
+	/* Background for theme component inputs/textareas */
+	#safariForm :global(.form-field__container input),
+	#safariForm :global(.form-field__container textarea) {
+		background-color: var(--theme-surface-1);
+	}
+
+	/* Labels inside FormInput / FormTextarea components */
+	#safariForm :global(.form-field__container label) {
+		font-family: var(--theme-font-family-sans, sans-serif);
+		font-size: var(--font-size-sm, 0.9rem);
+		font-weight: 500;
+		color: var(--theme-on-bg, #000);
+	}
+
+	/* ── Phone row ───────────────────────────────────────── */
+	.phone-row {
+		display: flex;
+		gap: 0.5rem;
+	}
+
+	.phone-row select {
+		flex: 0 0 110px;
+		width: auto;
+	}
+
+	.phone-row input {
+		flex: 1;
+		width: auto;
+	}
+
+	/* ── Submit button — matches Button.astro theme styles ── */
+	.submit-container {
+		width: 100%;
+	}
+
+	.submit-container .btn {
+		width: 100%;
+		padding: 0.6rem 1.2rem;
+		background-color: var(--theme-primary);
+		color: var(--theme-on-primary);
+		border: none;
+		border-radius: var(--theme-button-border-radius);
+		font-family: var(--theme-font-family-sans, sans-serif);
+		font-weight: 500;
+		font-size: 1rem;
+		cursor: pointer;
+		transition: background-color var(--theme-transition, 0.2s ease-in-out);
+		letter-spacing: 0.05em;
+	}
+
+	.submit-container .btn:hover {
+		background-color: var(--theme-primary-hover);
+	}
+
+	.submit-container .btn:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+
+	/* ── Validation ──────────────────────────────────────── */
 	.error-msg {
 		display: none;
 		color: #dc3545;
-		font-size: 0.875rem;
+		font-size: var(--font-size-sm, 0.875rem);
 		margin-top: 0.25rem;
 	}
 
-	/* Highlight invalid inputs AFTER submit */
-	#safari-contact-form.was-validated :global(input:invalid),
-	#safari-contact-form.was-validated :global(textarea:invalid),
-	#safari-contact-form.was-validated :global(select:invalid) {
+	/* Plain HTML fields */
+	#safariForm.was-validated .form-group:has(input:invalid) .error-msg,
+	#safariForm.was-validated .form-group:has(select:invalid) .error-msg,
+	#safariForm.was-validated .form-group:has(textarea:invalid) .error-msg {
+		display: block;
+	}
+
+	/* Theme component fields */
+	#safariForm.was-validated :global(.form-field__container input:invalid),
+	#safariForm.was-validated :global(.form-field__container select:invalid),
+	#safariForm.was-validated :global(.form-field__container textarea:invalid) {
 		border-color: #dc3545;
 	}
 
-	/* Show error message when form-group contains invalid field */
-	#safari-contact-form.was-validated
-		:global(.form-group:has(input:invalid))
-		.error-msg,
-	#safari-contact-form.was-validated
-		:global(.form-group:has(textarea:invalid))
-		.error-msg,
-	#safari-contact-form.was-validated
-		:global(.form-group:has(select:invalid))
-		.error-msg {
+	#safariForm.was-validated .form-group:has(:global(input:invalid)) .error-msg,
+	#safariForm.was-validated .form-group:has(:global(select:invalid)) .error-msg,
+	#safariForm.was-validated .form-group:has(:global(textarea:invalid)) .error-msg {
 		display: block;
 	}
-	.success-text {
-		color: #16a34a;
-		font-weight: 600;
-		margin-top: 1rem;
+
+	/* Highlight invalid plain-HTML inputs */
+	#safariForm.was-validated .form-field__container input:invalid,
+	#safariForm.was-validated .form-field__container select:invalid {
+		border-color: #dc3545;
 	}
 
-	.error-text {
-		color: #dc2626;
+	/* ── Status message ──────────────────────────────────── */
+	.status-msg {
+		text-align: center;
+		margin-top: 0.5rem;
+		font-family: var(--theme-font-family-sans, sans-serif);
 		font-weight: 600;
-		margin-top: 1rem;
+	}
+
+	.success-text { color: #16a34a; }
+	.error-text   { color: #dc2626; }
+
+	/* ── Responsive ──────────────────────────────────────── */
+	@media (max-width: 600px) {
+		.form-grid {
+			grid-template-columns: 1fr;
+		}
+		.full-width {
+			grid-column: span 1;
+		}
+		.phone-row select {
+			flex: 0 0 90px;
+		}
 	}
 </style>
