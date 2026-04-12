@@ -1,4 +1,10 @@
 {
+	"rewrites": [
+		{
+			"source": "/_paylink/:id",
+			"destination": "/paylink/:id"
+		}
+	],
 	"headers": [
 		{
 			"source": "/assets/images_converted/:path*",
