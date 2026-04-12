@@ -11,4 +11,7 @@ export default defineConfig({
   adapter: vercel(),
   site: 'https://experienceafrica.co.za',
   integrations: [sitemap(), mdx(), lit(), icon()],
+  redirects: {
+    '/_paylink/[id]': '/paylink/[id]',
+  },
 });
