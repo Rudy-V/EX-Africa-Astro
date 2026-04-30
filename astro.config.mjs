@@ -10,8 +10,5 @@ export default defineConfig({
   output: 'static',
   adapter: vercel(),
   site: 'https://experienceafrica.co.za',
-  integrations: [sitemap(), mdx(), lit(), icon()],
-  redirects: {
-    '/_paylink/[id]': '/paylink/[id]',
-  },
+  integrations: [sitemap(), mdx(), lit(), icon()]
 });
