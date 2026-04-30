@@ -1,68 +1,84 @@
-<p align="center">
-  <img src="assets/gh-banner.png" alt="Odyssey Theme Banner">
-</p>
+# Experience Africa Safaris
 
-<br/>
-<div align="center">
-  <a href="https://sapling.lemonsqueezy.com/checkout/buy/9b78751f-6382-442d-ac99-32c2318b70a0">
-    <img src="assets/sponsor-badge.svg" alt="Sponsor This Repo" />
-  </a>
-</div>
-<br/>
+Website for **Experience Africa Safaris** — bespoke luxury safari bookings, lodge experiences, and curated travel across Africa. Built with [Astro](https://astro.build) and deployed on [Vercel](https://vercel.com).
 
-# Odyssey Theme
+Live site: [experienceafrica.co.za](https://experienceafrica.co.za)
 
-Odyssey Theme is a modern theme/starter for a business or startup's marketing website. It provides landing page examples, a full-featured blog, contact forms, and more. It is fully themeable to match your business' branding and style. It even includes a theme switcher component to show how easily the entire style of the site can be changed with only a few lines of CSS.
+---
 
-## Features
+## Tech Stack
 
-<p align="center">
-  <img src="assets/lh-screenshot.png" alt="Screenshot of perfect score in Lighthouse benchmark">
-</p>
+- **[Astro](https://astro.build)** — static site framework
+- **[Lit](https://lit.dev)** — web components
+- **[Vercel](https://vercel.com)** — hosting and CDN
+- **[YOCO](https://www.yoco.co.za)** — payment processing
+- **Google Apps Script** — contact/inquiry form backend
 
+---
 
-- ✅ **A perfect score in Lighthouse**
-- ✅ **Blazing fast performance thanks to Astro 🚀**
-- ✅ **A Full Featured Blog with Tagging**
-- ✅ **Fully theme-able styles with for buttons, shapes, backgrounds, surfaces, etc.**
-- ✅ **Responsive, mobile-friendly landing pages**
-- ✅ **SEO Best Practices (Open Graph, Canonical URLs, sitemap)**
-- ✅ **Performant Local Fonts Setup**
-- ✅ **Contact Forms Setup for Netlify, Formspree, Formspark, etc.**
-- ✅ **A package of ready-to-use UI components**
+## Pages
 
+| Route | Description |
+|---|---|
+| `/` | Homepage |
+| `/safaris` | Pre-planned curated safaris |
+| `/locations` | Destinations |
+| `/about` | About Experience Africa Safaris |
+| `/contact` | Contact form |
+| `/FAQ` | Frequently asked questions |
+| `/paylink/[id]` | Customer payment link |
+| `/admin/paylinks` | Admin: generate payment links |
 
-## Demo
+---
 
-View a [live demo](https://odyssey-theme.sapling.supply/) of the Odyssey Theme.
-
-## Documentation
-
-1. View the [Theme Setup Guide](https://odyssey-theme.sapling.supply/theme/theme-setup)
-2. View the [Customizing the Theme Guide](https://odyssey-theme.sapling.supply/theme/customizing-odyssey)
-
-## Usage
+## Getting Started
 
 ```bash
-cd theme
-
 npm install
-
-npm start
+npm run dev
 ```
 
-## Deploy
+Open [http://localhost:4321](http://localhost:4321).
 
-Feel free to deploy and host your site on your favorite static hosting service such as Netlify, Firebase Hosting, Vercel, GitHub Pages, etc.
+### Environment Variables
 
-Astro has [an in-depth guide](https://docs.astro.build/en/guides/deploy/) on how to deploy an Astro project to each service.
+Copy `.env.example` to `.env` and fill in your values:
 
-## Sponsor
+```bash
+cp .env.example .env
+```
 
-If you find this theme useful, please consider donating to support the continued development of it with the link below
+| Variable | Description |
+|---|---|
+| `PUBLIC_GOOGLE_SCRIPT_URL` | Google Apps Script URL for the contact form |
+| `YOCO_PUBLIC_KEY` | YOCO public key (from [YOCO portal](https://portal.yoco.co.za)) |
+| `YOCO_SECRETE_KEY` | YOCO secret key |
 
-[Donate to Odyssey Theme](https://sapling.lemonsqueezy.com/checkout/buy/9b78751f-6382-442d-ac99-32c2318b70a0)
+---
 
-## Support
+## Scripts
 
-Please feel free to post issues or submit PRs to this repo and we will do our best to respond in a timely manner, keeping in mind this template is offered for free as is on GitHub.
+| Command | Description |
+|---|---|
+| `npm run dev` | Start local dev server at `localhost:4321` |
+| `npm run build` | Build for production |
+| `npm run preview` | Preview production build locally |
+| `npm run format` | Format code with Prettier |
+
+---
+
+## Deployment
+
+The site deploys automatically to Vercel on push to `main`. Set environment variables in the Vercel project settings under **Settings → Environment Variables**.
+
+---
+
+## Contact
+
+**Experience Africa Safaris**
+- Email: curteis@experienceafrica.co.za
+- WhatsApp: +27 64 738 8344
+- Instagram: [@theexperienceafrica](https://instagram.com/theexperienceafrica)
+- Facebook: [Thexperienceafrica](https://facebook.com/Thexperienceafrica)
+- YouTube: [Theexperienceafrica](https://www.youtube.com/Theexperienceafrica/featured)
+- TikTok: [@curt_is_wild](https://tiktok.com/@curt_is_wild)
