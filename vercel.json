@@ -18,5 +18,12 @@
 				}
 			]
 		}
-	]
+	],
+	"redirects": [
+		{
+			"source": "/_paylink/:path*",
+			"destination": "https://pay.experienceafrica.co.za/_paylink/:path*",
+			"permanent": false
+		}
+  	]
 }
