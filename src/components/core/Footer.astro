@@ -18,7 +18,7 @@ const { footerSocials, footerLists, copyrightName, background, color, showPlug: 
         </div>
         <ul class="footer-socials__list">
           {
-            footerSocials.map((social) => (
+            footerSocials.map((social: { name: string; url: string; icon: string }) => (
               <li class="footer-socials__item">
                 <a
                   href={social.url}
@@ -40,11 +40,11 @@ const { footerSocials, footerLists, copyrightName, background, color, showPlug: 
         />
       </div>
       {
-        footerLists.map((list) => (
+        footerLists.map((list: { title: string; items: { title: string; slug: string }[] }) => (
           <div>
             <p><strong>{list.title}</strong></p>
             <ul class="footer-link__list">
-              {list.items.map((item) => (
+              {list.items.map((item: { title: string; slug: string }) => (
                 <li>
                   <a href={item.slug}>{item.title}</a>
                 </li>
