@@ -11,7 +11,6 @@ Live site: [experienceafrica.co.za](https://experienceafrica.co.za)
 - **[Astro](https://astro.build)** — static site framework
 - **[Lit](https://lit.dev)** — web components
 - **[Vercel](https://vercel.com)** — hosting and CDN
-- **[YOCO](https://www.yoco.co.za)** — payment processing
 - **Google Apps Script** — contact/inquiry form backend
 
 ---
@@ -26,8 +25,6 @@ Live site: [experienceafrica.co.za](https://experienceafrica.co.za)
 | `/about` | About Experience Africa Safaris |
 | `/contact` | Contact form |
 | `/FAQ` | Frequently asked questions |
-| `/paylink/[id]` | Customer payment link |
-| `/admin/paylinks` | Admin: generate payment links |
 
 ---
 
@@ -51,8 +48,6 @@ cp .env.example .env
 | Variable | Description |
 |---|---|
 | `PUBLIC_GOOGLE_SCRIPT_URL` | Google Apps Script URL for the contact form |
-| `YOCO_PUBLIC_KEY` | YOCO public key (from [YOCO portal](https://portal.yoco.co.za)) |
-| `YOCO_SECRETE_KEY` | YOCO secret key |
 
 ---
 
