@@ -68,12 +68,5 @@ The site deploys automatically to Vercel on push to `main`. Set environment vari
 
 ---
 
-## Contact
-
-**Experience Africa Safaris**
-- Email: curteis@experienceafrica.co.za
-- WhatsApp: +27 64 738 8344
-- Instagram: [@theexperienceafrica](https://instagram.com/theexperienceafrica)
-- Facebook: [Thexperienceafrica](https://facebook.com/Thexperienceafrica)
-- YouTube: [Theexperienceafrica](https://www.youtube.com/Theexperienceafrica/featured)
-- TikTok: [@curt_is_wild](https://tiktok.com/@curt_is_wild)
+## Disclaimer
+While AI tools were used to assist in the development of specific segments, the vast majority of this codebase was architected, implemented, and refined by myself.
